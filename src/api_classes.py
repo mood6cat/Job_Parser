@@ -48,7 +48,7 @@ class HHApi(AbstractApi):
                 salary_min = 0
                 salary_max = 0
             company = vacancy["employer"]["name"]
-            place_of_work = vacancy["address"]["city"]
+            place_of_work = vacancy["area"]["name"]
             all_vacancies.append({
                 "name": name,
                 "url": url,
@@ -76,7 +76,7 @@ class SJApi(AbstractApi):
         all_vacancies = []
         for vacancy in data:
             profession = vacancy["profession"]
-            url = vacancy["url"]
+            url = vacancy["link"]
 
             salary_min = vacancy["payment_from"] if vacancy["payment_from"] else 0
             salary_max = vacancy["payment_to"] if vacancy["payment_to"] else 0
